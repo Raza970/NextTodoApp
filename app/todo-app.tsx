@@ -30,12 +30,12 @@ export default function TodoApp() {
     setTodo("");
   };
 
-  const deleteTodo = (delTodo:any) => {
+  const deleteTodo = (delTodo: any) => {
     const newTodos = todos.filter((todo) => {
       if (todo.todoText == delTodo.todoText) return false;
       return true;
     });
-    setTodos(newTodos)
+    setTodos(newTodos);
   };
 
   return (
@@ -46,14 +46,28 @@ export default function TodoApp() {
         onChange={(e) => {
           setTodo(e.target.value);
         }}
+        style={{ height: "20px" }}
       />
-      <button onClick={addTodo}>Add</button>
+      <button
+        onClick={addTodo}
+        style={{
+          marginLeft: "5px",
+          width: "80px",
+          height: "28px",
+          borderRadius: "10px",
+          backgroundColor: "#36454f",
+          color: "white",
+        }}
+      >
+        Add
+      </button>
       <ul>
         {todos.map((elm) => {
           return (
             <li
               style={{
                 color: elm.completed ? "green" : "red",
+                fontSize: "25px",
                 fontStyle: "italic",
                 listStyle: "none",
               }}
@@ -71,9 +85,10 @@ export default function TodoApp() {
                 onClick={() => deleteTodo(elm)}
                 style={{
                   borderRadius: "5px ",
-                  backgroundColor: "black",
+                  backgroundColor: "#282c35",
                   padding: "4px 18px",
                   display: "inline-block",
+                  color: "white",
                 }}
               >
                 Delete
